@@ -1,7 +1,8 @@
 package model;
 
 public class Rocket implements RocketAction {
-    private String name = "ракета";
+    private final static String NAME = "ракета";
+    private boolean state = false;
     private Motor motor;
 
     public Rocket(Motor motor){
@@ -9,12 +10,19 @@ public class Rocket implements RocketAction {
     }
 
     public String getName() {
-        return name;
+        return NAME;
     }
 
-    public void fly(Air air){
+    public boolean getState(){
+        return state;
+    }
+
+    public void fly(Air air) throws MotorException{
         motor.start();
-        System.out.print("ракета завелась ");
-        air.roar();
+        if(motor.getState()) {
+            state = true;
+            System.out.print("ракета завелась");
+            air.roar();
+        }
     }
 }

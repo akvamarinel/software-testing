@@ -1,5 +1,5 @@
 package model;
 
 interface PersonAction {
-    void fly(Places place, Rocket rocket);
+    String fly(Places place, Rocket rocket) throws PersonFlyException;
 }

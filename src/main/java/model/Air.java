@@ -3,7 +3,6 @@ package model;
 public class Air {
     private String name = "воздух";
 
-
     public String getName(){
         return name;
     }
